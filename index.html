@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>NeoAI — The Future is Now</title>
+    <title>EcoAI — Suli's Vision of the Future</title>
     <style>
-        /* Reset & base styles */
         * {
             margin: 0;
             padding: 0;
@@ -12,100 +11,114 @@
         }
 
         body {
-            background: radial-gradient(circle at center, #0f0f0f, #000000);
-            color: #00ffe7;
+            background: url('https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+            background-size: cover;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #e0f7fa;
+            text-align: center;
             display: flex;
             flex-direction: column;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             min-height: 100vh;
             padding: 20px;
-            overflow-x: hidden;
+            backdrop-filter: blur(2px);
         }
 
         header {
-            text-align: center;
-            margin-bottom: 50px;
-            animation: fadeIn 2s ease-in-out;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 30px 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            animation: fadeIn 2s ease;
         }
 
         h1 {
             font-size: 3rem;
-            text-shadow: 0 0 20px #00ffe7;
+            color: #00ffe7;
+            text-shadow: 0 0 10px #00ffe7;
+        }
+
+        .nature-box {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid #ffffff33;
+            border-radius: 15px;
+            padding: 30px;
+            width: 90%;
+            max-width: 700px;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 0 15px rgba(0, 255, 231, 0.2);
+            animation: floatUp 4s ease-in-out infinite alternate;
+        }
+
+        h2 {
+            margin-bottom: 15px;
+            color: #c1ffe3;
         }
 
         p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 20px auto;
-            color: #ccc;
-        }
-
-        .glow {
-            color: #00ffe7;
-            text-shadow: 0 0 5px #00ffe7, 0 0 10px #00ffe7, 0 0 20px #00ffe7;
-        }
-
-        .ai-box {
-            background: rgba(0, 255, 231, 0.1);
-            border: 1px solid #00ffe755;
-            border-radius: 15px;
-            padding: 30px;
-            max-width: 700px;
-            text-align: center;
-            backdrop-filter: blur(10px);
-            animation: floatUp 3s ease-in-out infinite alternate;
+            color: #e0f7fa;
+            font-size: 1.1rem;
         }
 
         footer {
-            margin-top: 50px;
-            color: #555;
+            margin-top: 40px;
             font-size: 0.9rem;
+            color: #d3e3e5;
+            background: rgba(0,0,0,0.5);
+            padding: 10px 20px;
+            border-radius: 10px;
         }
 
         @keyframes floatUp {
-            0% {
+            from {
                 transform: translateY(0);
             }
-            100% {
+            to {
                 transform: translateY(-10px);
             }
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        a {
-            color: #00ffe7;
-            text-decoration: none;
-        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.2rem;
+            }
 
-        a:hover {
-            text-decoration: underline;
+            .nature-box {
+                padding: 20px;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1 class="glow">🤖 NeoAI</h1>
-        <p>Exploring the edge of intelligence, technology, and the future.</p>
+        <h1>🌿 EcoAI by Suli</h1>
+        <p>Blending nature and intelligence — one line of code at a time.</p>
     </header>
 
-    <div class="ai-box">
-        <h2 class="glow">Welcome to the Future</h2>
+    <div class="nature-box">
+        <h2>Welcome to the Green Future</h2>
         <p>
-            This is a showcase of how artificial intelligence and creativity can merge. Designed with a futuristic aesthetic and clean motion effects.
+            I'm <strong>Suli</strong> — exploring how artificial intelligence can support and protect the natural world.
         </p>
         <p>
-            Stay tuned for more AI tools, ideas, and innovation.
+            This site is a small piece of a bigger vision: sustainable tech, smart ecosystems, and a future where nature and machines work in harmony.
         </p>
     </div>
 
     <footer>
-        <p>&copy; 2025 NeoAI. Crafted in code and imagination.</p>
+        <p>&copy; 2025 EcoAI by Suli — Crafted with code, inspired by nature 🌲</p>
     </footer>
 </body>
 </html>
