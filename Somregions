@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Somalia Regions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      color: #222;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #007b8a;
+      color: white;
+    }
+
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+
+    .tip {
+      font-size: 0.9em;
+      color: #555;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Somalia: 18 Regions and Their Capitals</h2>
+  <input type="text" id="myInput" placeholder="Search for regions or capitals..." onkeyup="myFunction()">
+
+  <table id="myTable">
+    <thead>
+      <tr>
+        <th>Region</th>
+        <th>Capital</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Awdal</td><td>Borama</td></tr>
+      <tr><td>Bakool</td><td>Huddur</td></tr>
+      <tr><td>Banaadir</td><td>Mogadishu</td></tr>
+      <tr><td>Bari</td><td>Boosaaso</td></tr>
+      <tr><td>Bay</td><td>Baidoa</td></tr>
+      <tr><td>Galguduud</td><td>Dhuusamareeb</td></tr>
+      <tr><td>Gedo</td><td>Garbahaarey</td></tr>
+      <tr><td>Hiiraan</td><td>Beledweyne</td></tr>
+      <tr><td>Lower Juba</td><td>Kismayo</td></tr>
+      <tr><td>Lower Shabelle</td><td>Baraawe</td></tr>
+      <tr><td>Middle Juba</td><td>Bu'aale</td></tr>
+      <tr><td>Middle Shabelle</td><td>Jowhar</td></tr>
+      <tr><td>Mudug</td><td>Galkacyo</td></tr>
+      <tr><td>Nugaal</td><td>Garowe</td></tr>
+      <tr><td>Sanaag</td><td>Erigavo</td></tr>
+      <tr><td>Sool</td><td>Laascaanood</td></tr>
+      <tr><td>Togdheer</td><td>Burao</td></tr>
+      <tr><td>Woqooyi Galbeed</td><td>Hargeisa</td></tr>
+    </tbody>
+  </table>
+
+  <p class="tip">Tip: You can search for either a region or its capital name.</p>
+
+  <script>
+    function myFunction() {
+      var input = document.getElementById("myInput");
+      var filter = input.value.toUpperCase();
+      var table = document.getElementById("myTable");
+      var tr = table.getElementsByTagName("tr");
+
+      for (var i = 1; i < tr.length; i++) {
+        var td1 = tr[i].getElementsByTagName("td")[0]; // Region
+        var td2 = tr[i].getElementsByTagName("td")[1]; // Capital
+        if (td1 || td2) {
+          var txtValue1 = td1.textContent || td1.innerText;
+          var txtValue2 = td2.textContent || td2.innerText;
+          if (txtValue1.toUpperCase().indexOf(filter) > -1 || txtValue2.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
+      }
+    }
+  </script>
+
+</body>
+</html>
