@@ -2,41 +2,110 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>My First Website</title>
+    <title>NeoAI — The Future is Now</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f2f2f2;
+        /* Reset & base styles */
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
-        header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 40px 20px;
-        }
-        section {
+
+        body {
+            background: radial-gradient(circle at center, #0f0f0f, #000000);
+            color: #00ffe7;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
             padding: 20px;
+            overflow-x: hidden;
         }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        h1 {
+            font-size: 3rem;
+            text-shadow: 0 0 20px #00ffe7;
+        }
+
+        p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 20px auto;
+            color: #ccc;
+        }
+
+        .glow {
+            color: #00ffe7;
+            text-shadow: 0 0 5px #00ffe7, 0 0 10px #00ffe7, 0 0 20px #00ffe7;
+        }
+
+        .ai-box {
+            background: rgba(0, 255, 231, 0.1);
+            border: 1px solid #00ffe755;
+            border-radius: 15px;
+            padding: 30px;
+            max-width: 700px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            animation: floatUp 3s ease-in-out infinite alternate;
+        }
+
         footer {
-            background-color: #333;
-            color: white;
-            padding: 10px;
+            margin-top: 50px;
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        a {
+            color: #00ffe7;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Welcome to My Website</h1>
-        <p>This is my first GitHub-hosted website!</p>
+        <h1 class="glow">🤖 NeoAI</h1>
+        <p>Exploring the edge of intelligence, technology, and the future.</p>
     </header>
-    <section>
-        <h2>About Me</h2>
-        <p>Hello! I'm learning web development and this is my first project on GitHub.</p>
-    </section>
+
+    <div class="ai-box">
+        <h2 class="glow">Welcome to the Future</h2>
+        <p>
+            This is a showcase of how artificial intelligence and creativity can merge. Designed with a futuristic aesthetic and clean motion effects.
+        </p>
+        <p>
+            Stay tuned for more AI tools, ideas, and innovation.
+        </p>
+    </div>
+
     <footer>
-        <p>Made with ❤️ in 2025</p>
+        <p>&copy; 2025 NeoAI. Crafted in code and imagination.</p>
     </footer>
 </body>
 </html>
