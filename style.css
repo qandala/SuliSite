@@ -18,7 +18,7 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.6); /* adjust opacity for darkness */
+  background-color: rgba(0,0,0,0.8); /* adjust opacity for darkness */
   z-index: -1;  /* behind content but above bg image */
 }
 
