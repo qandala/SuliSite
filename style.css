@@ -1,0 +1,60 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Fira Code', monospace;
+  background-color: #0f0f0f;
+  color: #ffffff;
+  line-height: 1.6;
+}
+
+a {
+  color: #1ecbe1;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+h1 {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.highlight {
+  color: #1ecbe1;
+}
+
+.subtitle {
+  font-size: 18px;
+  color: #ccc;
+}
+
+.intro {
+  margin-bottom: 40px;
+  font-size: 18px;
+}
+
+.contact h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #1ecbe1;
+}
+
+footer {
+  margin-top: 60px;
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+}
