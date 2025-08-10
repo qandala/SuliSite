@@ -6,6 +6,20 @@ body {
   background-size: cover;
   color: #ffffff;
   line-height: 1.6;
+  position: relative;  /* needed for overlay */
+  z-index: 0;
+}
+
+/* Dark overlay on top of background */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6); /* adjust opacity for darkness */
+  z-index: -1;  /* behind content but above bg image */
 }
 
 a {
@@ -23,6 +37,7 @@ a:hover {
   padding: 60px 20px;
 }
 
+/* rest unchanged... */
 header {
   text-align: center;
   margin-bottom: 60px;
