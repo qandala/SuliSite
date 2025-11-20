@@ -1,40 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sulemaan — Junior Azure & Intune Engineer | Scripting & Device Management</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sulemaan's AI & Cloud Portfolio</title>
+    <!-- Load Fira Code font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for icons (used in the Skills section) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>Hello, I'm <span class="highlight">Sulemaan</span></h1>
-      <p class="subtitle">Junior Cloud Engineer | Azure Enthusiast | PowerShell Learner</p>
-    </header>
+    <div class="container">
+        
+        <header>
+            <h1><span class="highlight">Sulemaan</span> | Cloud & AI Automation</h1>
+            <p class="subtitle">Architecting the future of finance and technology.</p>
+        </header>
 
-    <main>
-      <section class="intro">
-        <p>
-          Aspiring Cloud Engineer focused on Microsoft Azure, Intune, and networking fundamentals. 
-          I'm also developing automation skills through PowerShell scripting and working toward becoming confident in device and user management.
-
-        </p>
-        <p>
-          I'm passionate about technology and committed to learning something new every day — from configuring endpoints with Intune to deploying cloud resources and scripting repeatable tasks.
-        </p>
-      </section>
-
-      <section class="contact">
-        <h2>Get in Touch</h2>
-        <p>GitHub: <a href="https://github.com/qandala" target="_blank">github.com/qandala</a></p>
+        <section class="intro">
+            <p>
+                As a dedicated technologist focusing on Cloud Engineering, AI integration, and Finance Automation, I bridge the gap between strategic financial goals and cutting-edge infrastructure. My expertise lies in Azure environments, leveraging Python and PowerShell for scalable, secure, and highly efficient solutions. I am driven by the potential of technology to optimize complex processes and deliver tangible value.
+            </p>
         </section>
-    </main>
 
-    <footer>
-      <p>&copy; 2025 Sulemaan. All rights reserved.</p>
-    </footer>
-  </div>
+        <!-- --------------------------------------- -->
+        <!-- NEW SECTION: SKILLS MATRIX -->
+        <!-- --------------------------------------- -->
+        <section class="skills">
+            <h2><i class="fas fa-microchip"></i> Core Competencies</h2>
+
+            <div class="skills-grid">
+
+                <div class="skill-item">
+                    <p class="skill-name">Microsoft Azure</p>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" data-level="95"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <p class="skill-name">Python Automation</p>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" data-level="90"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <p class="skill-name">PowerShell Scripting</p>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" data-level="80"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <p class="skill-name">Financial Modeling</p>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" data-level="75"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <p class="skill-name">Data Analytics (SQL/Kusto)</p>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" data-level="85"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <p class="skill-name">Infrastructure as Code (IaC)</p>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" data-level="70"></div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- --------------------------------------- -->
+
+        <section class="contact">
+            <h2>Connect // Access Log</h2>
+            <p>
+                <a href="#">Email: sulemaan.dev@example.com</a> | 
+                <a href="#">LinkedIn Profile</a> | 
+                <a href="#">GitHub Repository</a>
+            </p>
+        </section>
+
+        <footer>
+            &copy; 2025 Sulemaan. Initiating connection protocol...
+        </footer>
+
+    </div>
+
+    <!-- JavaScript to fill the progress bars dynamically and with animation -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const progressBars = document.querySelectorAll('.progress-bar');
+            
+            progressBars.forEach(bar => {
+                const level = bar.getAttribute('data-level');
+                // Use a slight delay to ensure the CSS transition is visible
+                setTimeout(() => {
+                    bar.style.width = level + '%';
+                }, 100); 
+            });
+        });
+    </script>
 </body>
 </html>
