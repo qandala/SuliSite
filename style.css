@@ -1,76 +1,121 @@
+/* --- Global Reset & Background --- */
 body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Fira Code', monospace;
-  background: url('../smoke-image.jpg') no-repeat center center fixed;
-  background-size: cover;
-  color: #ffffff;
-  line-height: 1.6;
-  position: relative;  /* needed for overlay */
-  z-index: 0;
+    margin: 0;
+    padding: 0;
+    /* Use a standard monospace font stack if Fira Code fails */
+    font-family: 'Fira Code', Consolas, monospace;
+    
+    /* Background setup - Use 'no-repeat fixed cover' shorthand */
+    background: url('../smoke-image.jpg') no-repeat center center fixed;
+    background-size: cover;
+    
+    /* Main text color: slightly off-white for softer contrast */
+    color: #EAEAEA; 
+    line-height: 1.7; /* Increased line-height for better readability */
+    position: relative;
+    z-index: 0;
+    min-height: 100vh; /* Ensure body covers the full viewport height */
 }
 
-/* Dark overlay on top of background */
+/* Dark Overlay on top of background image (Excellent feature!) */
 body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.7); /* adjust opacity for darkness */
-  z-index: -1;  /* behind content but above bg image */
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Subtle change: make it a bit darker (0.8) for better text contrast */
+    background-color: rgba(0, 0, 0, 0.8); 
+    z-index: -1; 
 }
 
-a {
-  color: #1ecbe1;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
+/* --- Container and Layout --- */
 .container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 60px 20px;
+    max-width: 900px; /* Slightly wider */
+    /* Add padding to the top/bottom for better visual breathing room */
+    padding: 80px 30px; 
+    margin: 0 auto;
+    
+    /* Give the container a slight backdrop/focus effect */
+    background-color: rgba(10, 10, 10, 0.5); /* Very light dark background */
+    border-radius: 10px;
+    /* Subtle glow effect around the content area */
+    box-shadow: 0 0 15px rgba(30, 203, 225, 0.2); 
 }
 
-/* rest unchanged... */
+/* --- Typography & Headers --- */
 header {
-  text-align: center;
-  margin-bottom: 60px;
+    text-align: center;
+    margin-bottom: 70px; /* Increased margin */
 }
 
 h1 {
-  font-size: 48px;
-  margin-bottom: 10px;
+    font-size: 56px; /* Larger main title */
+    margin-bottom: 8px;
+    font-weight: 700;
+    /* Subtle text shadow for depth against the dark background */
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); 
 }
 
 .highlight {
-  color: #1ecbe1;
+    color: #1ecbe1; /* Your existing Azure-like cyan */
+    /* Add a clean, vibrant glow */
+    text-shadow: 0 0 12px rgba(30, 203, 225, 0.8); 
+    transition: color 0.3s;
 }
 
 .subtitle {
-  font-size: 18px;
-  color: #ccc;
+    font-size: 20px;
+    color: #A0C0D0; /* Muted cyan/blue for secondary text */
+    margin-top: 5px;
+    border-bottom: 2px solid rgba(30, 203, 225, 0.3); /* Subtle separator */
+    display: inline-block; /* Only underline the text width */
+    padding-bottom: 5px;
 }
 
 .intro {
-  margin-bottom: 40px;
-  font-size: 18px;
+    margin-bottom: 50px;
+    font-size: 1.05em; /* Slightly larger text for main content */
+    font-weight: 300; /* Lighter font weight for 'Fira Code' */
+    background-color: rgba(255, 255, 255, 0.05); /* Very subtle contrast box */
+    padding: 20px;
+    border-left: 3px solid #1ecbe1; /* Strong line visual cue */
+    border-radius: 4px;
+}
+
+/* --- Contact Section --- */
+.contact {
+    padding-top: 30px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.2); /* Dashed separator */
 }
 
 .contact h2 {
-  font-size: 24px;
-  margin-bottom: 10px;
-  color: #1ecbe1;
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: #1ecbe1;
 }
 
+/* --- Links --- */
+a {
+    color: #1ecbe1;
+    text-decoration: none;
+    /* Use a bottom border instead of default underline */
+    border-bottom: 1px dotted #1ecbe1; 
+    transition: color 0.3s, border-bottom-color 0.3s;
+}
+
+a:hover {
+    color: #FFFFFF; /* Highlight links in pure white on hover */
+    border-bottom: 1px dotted #FFFFFF;
+}
+
+/* --- Footer --- */
 footer {
-  margin-top: 60px;
-  text-align: center;
-  font-size: 14px;
-  color: #666;
+    margin-top: 80px;
+    text-align: center;
+    font-size: 13px;
+    color: #777777; /* Subtle gray */
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
