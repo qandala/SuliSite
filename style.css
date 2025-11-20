@@ -1,23 +1,35 @@
+/* ------------------------------------------------------------------- */
+/* 1. KEYFRAMES: Creates a "breathing" effect by pulsing the box-shadow */
+/* ------------------------------------------------------------------- */
+@keyframes pulseGlow {
+    0% {
+        box-shadow: 0 0 15px rgba(30, 203, 225, 0.2);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(30, 203, 225, 0.6); /* Brighter, wider glow */
+    }
+    100% {
+        box-shadow: 0 0 15px rgba(30, 203, 225, 0.2);
+    }
+}
+
 /* --- Global Reset & Background --- */
 body {
     margin: 0;
     padding: 0;
-    /* Use a standard monospace font stack if Fira Code fails */
     font-family: 'Fira Code', Consolas, monospace;
     
-    /* Background setup - Use 'no-repeat fixed cover' shorthand */
     background: url('../smoke-image.jpg') no-repeat center center fixed;
     background-size: cover;
     
-    /* Main text color: slightly off-white for softer contrast */
-    color: #EAEAEA; 
-    line-height: 1.7; /* Increased line-height for better readability */
+    color: #EAEAEA; /* Slightly off-white for softer contrast */
+    line-height: 1.7; 
     position: relative;
     z-index: 0;
-    min-height: 100vh; /* Ensure body covers the full viewport height */
+    min-height: 100vh;
 }
 
-/* Dark Overlay on top of background image (Excellent feature!) */
+/* Dark Overlay on top of background image */
 body::before {
     content: "";
     position: fixed;
@@ -25,69 +37,84 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    /* Subtle change: make it a bit darker (0.8) for better text contrast */
-    background-color: rgba(0, 0, 0, 0.8); 
+    background-color: rgba(0, 0, 0, 0.8); /* Adjusted to 0.8 for maximum contrast */
     z-index: -1; 
 }
 
 /* --- Container and Layout --- */
 .container {
-    max-width: 900px; /* Slightly wider */
-    /* Add padding to the top/bottom for better visual breathing room */
+    max-width: 900px;
     padding: 80px 30px; 
     margin: 0 auto;
     
-    /* Give the container a slight backdrop/focus effect */
-    background-color: rgba(10, 10, 10, 0.5); /* Very light dark background */
+    background-color: rgba(10, 10, 10, 0.7); /* Slightly more transparent than overlay */
     border-radius: 10px;
-    /* Subtle glow effect around the content area */
-    box-shadow: 0 0 15px rgba(30, 203, 225, 0.2); 
+
+    /* **ENHANCEMENT: Apply the pulse animation to make the content look alive** */
+    animation: pulseGlow 8s infinite alternate; 
 }
 
 /* --- Typography & Headers --- */
 header {
     text-align: center;
-    margin-bottom: 70px; /* Increased margin */
+    margin-bottom: 70px;
 }
 
 h1 {
-    font-size: 56px; /* Larger main title */
+    font-size: 56px; 
     margin-bottom: 8px;
     font-weight: 700;
-    /* Subtle text shadow for depth against the dark background */
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); 
 }
 
 .highlight {
-    color: #1ecbe1; /* Your existing Azure-like cyan */
-    /* Add a clean, vibrant glow */
-    text-shadow: 0 0 12px rgba(30, 203, 225, 0.8); 
+    color: #1ecbe1; 
+    /* **ENHANCEMENT: Sharper, multi-layer neon glow effect on the text** */
+    text-shadow: 0 0 5px #1ecbe1, 0 0 10px #1ecbe1, 0 0 20px rgba(30, 203, 225, 0.5);
     transition: color 0.3s;
+}
+
+.highlight:hover {
+    color: #FFFFFF;
+    /* Stronger glow on hover */
+    text-shadow: 0 0 15px #FFFFFF, 0 0 30px rgba(255, 255, 255, 0.8);
 }
 
 .subtitle {
     font-size: 20px;
-    color: #A0C0D0; /* Muted cyan/blue for secondary text */
+    color: #A0C0D0;
     margin-top: 5px;
-    border-bottom: 2px solid rgba(30, 203, 225, 0.3); /* Subtle separator */
-    display: inline-block; /* Only underline the text width */
+    
+    /* **ENHANCEMENT: Gradient Separator (Energy Line Effect)** */
+    border-bottom: none; 
     padding-bottom: 5px;
+    margin-bottom: 25px; 
+    
+    border-image: linear-gradient(to right, #1ecbe1, rgba(30, 203, 225, 0.1));
+    border-image-slice: 1;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+
+    display: inline-block;
 }
 
 .intro {
     margin-bottom: 50px;
-    font-size: 1.05em; /* Slightly larger text for main content */
-    font-weight: 300; /* Lighter font weight for 'Fira Code' */
-    background-color: rgba(255, 255, 255, 0.05); /* Very subtle contrast box */
-    padding: 20px;
-    border-left: 3px solid #1ecbe1; /* Strong line visual cue */
-    border-radius: 4px;
+    font-size: 1.05em; 
+    font-weight: 300; 
+    
+    /* **ENHANCEMENT: Data Grid Look** */
+    background-color: rgba(0, 0, 0, 0.4); 
+    border: 1px dashed rgba(30, 203, 225, 0.3);
+    border-left: 3px solid #1ecbe1;
+    padding: 25px;
+    border-radius: 2px; 
 }
 
 /* --- Contact Section --- */
 .contact {
     padding-top: 30px;
-    border-top: 1px dashed rgba(255, 255, 255, 0.2); /* Dashed separator */
+    border-top: 1px dashed rgba(255, 255, 255, 0.2);
 }
 
 .contact h2 {
@@ -100,14 +127,15 @@ h1 {
 a {
     color: #1ecbe1;
     text-decoration: none;
-    /* Use a bottom border instead of default underline */
-    border-bottom: 1px dotted #1ecbe1; 
-    transition: color 0.3s, border-bottom-color 0.3s;
+    border-bottom: 1px dotted #1ecbe1;
+    transition: color 0.3s, border-bottom-color 0.3s, text-shadow 0.3s;
 }
 
 a:hover {
-    color: #FFFFFF; /* Highlight links in pure white on hover */
+    color: #FFFFFF;
     border-bottom: 1px dotted #FFFFFF;
+    /* **ENHANCEMENT: Text shadow/glow on hover for interactive links** */
+    text-shadow: 0 0 5px #FFFFFF;
 }
 
 /* --- Footer --- */
@@ -115,7 +143,7 @@ footer {
     margin-top: 80px;
     text-align: center;
     font-size: 13px;
-    color: #777777; /* Subtle gray */
+    color: #777777;
     padding-top: 15px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
