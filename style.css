@@ -1,69 +1,66 @@
-/* Change main accent from cyan → gold/navy luxury */
-.highlight {
-    color: #d4af37;               /* gold */
-    text-shadow: 0 0 8px rgba(212,175,55,0.5), 0 0 15px rgba(212,175,55,0.3);
-}
-
-.highlight:hover {
-    color: #ffffff;
-    text-shadow: 0 0 20px rgba(255,255,255,0.7);
-}
-
+/* --- Global Reset & Background --- */
 body {
-    background: url('../luxury-home-hero.jpg') no-repeat center center fixed;  /* ← high-res property image */
-    background-size: cover;
+    margin: 0;
+    padding: 0;
+    font-family: 'Fira Code', Consolas, monospace;
+    
+    /* Use your uploaded image as background */
+    background: url('https://raw.githubusercontent.com/qandala/SuliSite/main/realestate.jfif') no-repeat center center fixed;
+    background-size: cover;           /* Ensures it fills the screen nicely */
+    background-position: center;      /* Keeps focus on the most important part */
+    
+    color: #EAEAEA;
+    line-height: 1.7;
+    position: relative;
+    z-index: 0;
+    min-height: 100vh;
 }
 
+/* Darker, more elegant overlay – refined for better text contrast on real estate photos */
 body::before {
-    background-color: rgba(0, 0, 20, 0.65);   /* darker navy overlay for readability + luxury mood */
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 30, 0.65) 0%,    /* slightly lighter at top */
+        rgba(0, 0, 40, 0.78) 100%   /* darker toward bottom for depth */
+    );
+    z-index: -1;
 }
 
+/* Optional: subtle vignette effect for more premium feel (adds focus to center) */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0 0 120px 40px rgba(0, 0, 20, 0.5);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Container – keep semi-transparent but adjust if needed */
 .container {
-    background-color: rgba(15, 20, 35, 0.75);  /* deeper, richer dark */
-    animation: pulseGlow 10s infinite alternate;   /* slower, subtler pulse */
-}
-
-@keyframes pulseGlow {
-    0%   { box-shadow: 0 0 20px rgba(212,175,55,0.15); }
-    50%  { box-shadow: 0 0 40px rgba(212,175,55,0.4);  }
-    100% { box-shadow: 0 0 20px rgba(212,175,55,0.15); }
-}
-
-a { color: #d4af37; }
-a:hover { color: #ffffff; text-shadow: 0 0 8px rgba(255,255,255,0.6); }
-
-/* Add hero-search styling */
-.hero-search {
-    text-align: center;
-    margin: 40px 0 60px;
-}
-.tagline-main {
-    font-size: 1.6em;
-    color: #d4af37;
-    margin-bottom: 25px;
-    font-weight: 400;
-}
-.search-box {
-    max-width: 600px;
+    max-width: 900px;
+    padding: 80px 30px;
     margin: 0 auto;
+    
+    background-color: rgba(10, 10, 25, 0.72); /* Slightly darker blue tint for luxury */
+    border-radius: 10px;
+    
+    /* Subtle pulse – slower and softer for elegance */
+    animation: pulseGlow 12s infinite alternate;
 }
-.search-box input {
-    padding: 14px 20px;
-    width: 70%;
-    border: none;
-    border-radius: 6px 0 0 6px;
-}
-.search-box button {
-    padding: 14px 24px;
-    background: #d4af37;
-    color: #0f1423;
-    border: none;
-    border-radius: 0 6px 6px 0;
-    cursor: pointer;
-    font-weight: bold;
-}
-.cta-section {
-    text-align: center;
-    padding: 60px 20px;
-    background: linear-gradient(to bottom, rgba(30,40,60,0.4), rgba(15,20,35,0.7));
+
+/* Adjust pulse to match gold accent */
+@keyframes pulseGlow {
+    0%   { box-shadow: 0 0 20px rgba(212, 175, 55, 0.12); }
+    50%  { box-shadow: 0 0 45px rgba(212, 175, 55, 0.35); }
+    100% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.12); }
 }
