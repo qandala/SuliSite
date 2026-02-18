@@ -4,31 +4,33 @@ body {
     padding: 0;
     font-family: 'Inter', 'Fira Code', Consolas, monospace;
 
-    /* Real estate background */
-    background: url('https://raw.githubusercontent.com/qandala/SuliSite/main/realestate.jfif') no-repeat center center fixed;
+    /* Background image */
+    background-image: url('https://raw.githubusercontent.com/qandala/SuliSite/main/realestate.jfif');
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 
-    color: #F5F5F7; /* softer white */
+    min-height: 100vh;
+    color: #F5F5F7;
     line-height: 1.7;
     position: relative;
-    min-height: 100vh;
 }
 
-/* Elegant deep navy overlay */
+/* --- Premium Warm Tone Overlay (Option 3) --- */
 body::before {
     content: "";
     position: fixed;
     inset: 0;
     background: linear-gradient(
         180deg,
-        rgba(8, 15, 28, 0.65) 0%,
-        rgba(5, 10, 20, 0.85) 100%
+        rgba(30, 22, 15, 0.30) 0%,   /* warm soft top */
+        rgba(12, 10, 15, 0.55) 100%  /* deeper bottom */
     );
     z-index: -1;
 }
 
-/* Subtle premium vignette */
+/* --- Subtle Vignette for Premium Feel --- */
 body::after {
     content: "";
     position: fixed;
@@ -44,7 +46,7 @@ body::after {
     padding: 80px 40px;
     margin: 80px auto;
 
-    background: rgba(15, 23, 42, 0.65); /* modern navy glass */
+    background: rgba(20, 18, 22, 0.55); /* slightly transparent for image visibility */
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
 
@@ -54,14 +56,14 @@ body::after {
     animation: subtleGlow 10s ease-in-out infinite alternate;
 }
 
-/* Modern luxury glow – champagne gold */
+/* --- Luxury Glow Animation --- */
 @keyframes subtleGlow {
     0%   { box-shadow: 0 0 25px rgba(214, 182, 120, 0.15); }
     50%  { box-shadow: 0 0 50px rgba(214, 182, 120, 0.25); }
     100% { box-shadow: 0 0 25px rgba(214, 182, 120, 0.15); }
 }
 
-/* --- Typography refinement --- */
+/* --- Typography --- */
 h1, h2, h3 {
     font-weight: 600;
     letter-spacing: 0.5px;
@@ -69,16 +71,16 @@ h1, h2, h3 {
 
 h1 {
     font-size: 2.8rem;
-    color: #E6C98B; /* softer champagne gold */
+    color: #E8D3A5; /* soft champagne gold */
 }
 
 p {
-    color: #D1D5DB; /* modern soft gray */
+    color: #D1D5DB; /* soft gray for readability */
 }
 
-/* Optional: Elegant gold button style */
+/* --- Luxury Button Style --- */
 button {
-    background: linear-gradient(135deg, #E6C98B, #C9A54C);
+    background: linear-gradient(135deg, #E8D3A5, #C9A54C);
     border: none;
     padding: 14px 28px;
     border-radius: 8px;
