@@ -1,160 +1,257 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sulemaan Real Estate Co. | Luxury Homes & Premium Properties</title>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luxury Real Estate</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+/* --- Global Reset & Background --- */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', 'Fira Code', monospace;
+
+    background-image: url('https://raw.githubusercontent.com/qandala/SuliSite/main/realestate.jfif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    min-height: 100vh;
+    color: #F5F5F7;
+    line-height: 1.7;
+    position: relative;
+}
+
+/* --- Warm Overlay --- */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(30, 22, 15, 0.30) 0%,
+        rgba(12, 10, 15, 0.55) 100%
+    );
+    z-index: -1;
+}
+
+/* --- Subtle Vignette --- */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    box-shadow: inset 0 0 160px 60px rgba(0, 0, 0, 0.6);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* --- Container --- */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 30px;
+    background: rgba(20, 18, 22, 0.55);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* --- Hero Section --- */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #E8D3A5;
+    padding: 0 20px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    color: #F5F5F7;
+}
+
+.hero button {
+    margin-top: 30px;
+}
+
+/* --- Buttons --- */
+button {
+    background: linear-gradient(135deg, #E8D3A5, #C9A54C);
+    border: none;
+    padding: 14px 28px;
+    border-radius: 8px;
+    color: #111827;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(214,182,120,0.35);
+}
+
+/* --- Section Titles --- */
+h2 {
+    font-size: 2.2rem;
+    color: #E8D3A5;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* --- About Section --- */
+.about {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.about p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    color: #D1D5DB;
+}
+
+/* --- Project Gallery --- */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 80px 20px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.gallery-item .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+    color: #E8D3A5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    font-weight: 600;
+    text-align: center;
+}
+
+.gallery-item:hover .overlay {
+    opacity: 1;
+}
+
+/* --- Contact Section --- */
+.contact {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.contact input, 
+.contact textarea {
+    width: 100%;
+    max-width: 500px;
+    padding: 12px 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: none;
+    background: rgba(255,255,255,0.1);
+    color: #F5F5F7;
+    font-size: 1rem;
+}
+
+.contact input::placeholder,
+.contact textarea::placeholder {
+    color: #D1D5DB;
+}
+
+.contact button {
+    margin-top: 20px;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+}
+</style>
 </head>
 <body>
-    <div class="container">
-        
-        <header>
-            <h1><span class="highlight">Sulemaan</span> Real Estate Co.</h1>
-            <p class="subtitle">Exceptional Properties • Personalized Service • Lasting Value</p>
-        </header>
 
-        <section class="hero-search">
-            <p class="tagline-main">Discover your dream home. Secure premium investments. Partner with confidence.</p>
-            <div class="search-box">
-                <input type="text" placeholder="City, neighborhood, or keyword...">
-                <button>Search Properties <i class="fas fa-search"></i></button>
-            </div>
-        </section>
+<!-- Hero Section -->
+<section class="hero">
+    <h1>Luxury Real Estate</h1>
+    <p>Showcasing the finest properties with elegance, warmth, and style. Your dream home starts here.</p>
+    <button>View Projects</button>
+</section>
 
-        <section class="intro">
-            <p>
-                Led by Sulemaan, Sulemaan Real Estate Co. specializes in luxury residences, waterfront estates, modern urban homes, and high-return investment properties. With insider market knowledge, dedicated negotiation, and a commitment to exceptional client experiences, we help you find — and secure — the property that truly fits your vision.
-            </p>
-        </section>
+<!-- About Section -->
+<section class="about container">
+    <h2>About Us</h2>
+    <p>We specialize in high-end residential properties, offering personalized services that combine elegance, modern design, and luxury living experiences.</p>
+</section>
 
-        <!-- Strengths (formerly Skills) -->
-        <section class="skills">
-            <h2><i class="fas fa-key"></i> Our Core Strengths</h2>
-
-            <div class="skills-grid">
-
-                <div class="skill-item">
-                    <p class="skill-name">Luxury Market Knowledge</p>
-                    <div class="progress-bar-container">
-                        <div class="progress-bar" data-level="95"></div>
-                    </div>
-                </div>
-
-                <div class="skill-item">
-                    <p class="skill-name">Elite Negotiation</p>
-                    <div class="progress-bar-container">
-                        <div class="progress-bar" data-level="92"></div>
-                    </div>
-                </div>
-
-                <div class="skill-item">
-                    <p class="skill-name">Exclusive Off-Market Access</p>
-                    <div class="progress-bar-container">
-                        <div class="progress-bar" data-level="88"></div>
-                    </div>
-                </div>
-
-                <div class="skill-item">
-                    <p class="skill-name">Investment Advisory</p>
-                    <div class="progress-bar-container">
-                        <div class="progress-bar" data-level="85"></div>
-                    </div>
-                </div>
-
-                <div class="skill-item">
-                    <p class="skill-name">Client-Centered Approach</p>
-                    <div class="progress-bar-container">
-                        <div class="progress-bar" data-level="96"></div>
-                    </div>
-                </div>
-
-                <div class="skill-item">
-                    <p class="skill-name">Smooth, Secure Closings</p>
-                    <div class="progress-bar-container">
-                        <div class="progress-bar" data-level="90"></div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Track Record (formerly Experience Timeline) -->
-        <section class="timeline">
-            <h2><i class="fas fa-trophy"></i> Track Record of Excellence</h2>
-            
-            <div class="timeline-container">
-                
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-date">2023 – Present</span>
-                        <h3 class="timeline-title">Founder & Principal Broker</h3>
-                        <p class="timeline-company">Sulemaan Real Estate Co.</p>
-                        <ul class="timeline-description">
-                            <li>Successfully closed 40+ high-value transactions, including multiple record sales in premium markets.</li>
-                            <li>Built a network delivering exclusive off-market opportunities — many sold in under 10 days.</li>
-                            <li>Maintained 97%+ client satisfaction, with strong repeat and referral business.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-date">2019 – 2023</span>
-                        <h3 class="timeline-title">Senior Luxury Advisor</h3>
-                        <p class="timeline-company">Premier Estates Partners</p>
-                        <ul class="timeline-description">
-                            <li>Guided clients to 90+ successful purchases and sales, often exceeding asking in competitive conditions.</li>
-                            <li>Focused on investment properties delivering consistent 9–15% ROI for discerning buyers.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-date">2016 – 2019</span>
-                        <h3 class="timeline-title">Market Specialist & Associate</h3>
-                        <p class="timeline-company">Horizon Realty Group</p>
-                        <ul class="timeline-description">
-                            <li>Developed data-driven insights that empowered clients to make optimal timing and pricing decisions.</li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <section class="contact cta-section">
-            <h2>Ready to Find Your Next Property?</h2>
-            <p>
-                Contact Sulemaan today to start your journey.<br>
-                <a href="mailto:sulemaan@realestateco.com">Email: sulemaan@realestateco.com</a> | 
-                <a href="#">Book a Consultation</a> | 
-                <a href="#">Explore Listings</a>
-            </p>
-        </section>
-
-        <footer>
-            © 2026 Sulemaan Real Estate Co. Building futures, one key at a time...
-        </footer>
-
+<!-- Project Gallery -->
+<section class="gallery container">
+    <div class="gallery-item">
+        <img src="https://raw.githubusercontent.com/qandala/SuliSite/main/realestate.jfif" alt="Project 1">
+        <div class="overlay">Project 1</div>
     </div>
+    <div class="gallery-item">
+        <img src="https://raw.githubusercontent.com/qandala/SuliSite/main/realestate.jfif" alt="Project 2">
+        <div class="overlay">Project 2</div>
+    </div>
+    <div class="gallery-item">
+        <img src="https://raw.githubusercontent.com/qandala/SuliSite/main/realestate.jfif" alt="Project 3">
+        <div class="overlay">Project 3</div>
+    </div>
+</section>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const progressBars = document.querySelectorAll('.progress-bar');
-            progressBars.forEach(bar => {
-                const level = bar.getAttribute('data-level');
-                setTimeout(() => {
-                    bar.style.width = level + '%';
-                }, 100);
-            });
-        });
-    </script>
+<!-- Contact Section -->
+<section class="contact container">
+    <h2>Contact Us</h2>
+    <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
 </body>
 </html>
