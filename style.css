@@ -2,65 +2,93 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Fira Code', Consolas, monospace;
-    
-    /* Use your uploaded image as background */
+    font-family: 'Inter', 'Fira Code', Consolas, monospace;
+
+    /* Real estate background */
     background: url('https://raw.githubusercontent.com/qandala/SuliSite/main/realestate.jfif') no-repeat center center fixed;
-    background-size: cover;           /* Ensures it fills the screen nicely */
-    background-position: center;      /* Keeps focus on the most important part */
-    
-    color: #EAEAEA;
+    background-size: cover;
+    background-position: center;
+
+    color: #F5F5F7; /* softer white */
     line-height: 1.7;
     position: relative;
-    z-index: 0;
     min-height: 100vh;
 }
 
-/* Darker, more elegant overlay – refined for better text contrast on real estate photos */
+/* Elegant deep navy overlay */
 body::before {
     content: "";
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     background: linear-gradient(
-        to bottom,
-        rgba(0, 0, 30, 0.65) 0%,    /* slightly lighter at top */
-        rgba(0, 0, 40, 0.78) 100%   /* darker toward bottom for depth */
+        180deg,
+        rgba(8, 15, 28, 0.65) 0%,
+        rgba(5, 10, 20, 0.85) 100%
     );
     z-index: -1;
 }
 
-/* Optional: subtle vignette effect for more premium feel (adds focus to center) */
+/* Subtle premium vignette */
 body::after {
     content: "";
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    box-shadow: inset 0 0 120px 40px rgba(0, 0, 20, 0.5);
+    inset: 0;
+    box-shadow: inset 0 0 160px 60px rgba(0, 0, 0, 0.6);
     pointer-events: none;
     z-index: -1;
 }
 
-/* Container – keep semi-transparent but adjust if needed */
+/* --- Modern Glass Container --- */
 .container {
     max-width: 900px;
-    padding: 80px 30px;
-    margin: 0 auto;
-    
-    background-color: rgba(10, 10, 25, 0.72); /* Slightly darker blue tint for luxury */
-    border-radius: 10px;
-    
-    /* Subtle pulse – slower and softer for elegance */
-    animation: pulseGlow 12s infinite alternate;
+    padding: 80px 40px;
+    margin: 80px auto;
+
+    background: rgba(15, 23, 42, 0.65); /* modern navy glass */
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    animation: subtleGlow 10s ease-in-out infinite alternate;
 }
 
-/* Adjust pulse to match gold accent */
-@keyframes pulseGlow {
-    0%   { box-shadow: 0 0 20px rgba(212, 175, 55, 0.12); }
-    50%  { box-shadow: 0 0 45px rgba(212, 175, 55, 0.35); }
-    100% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.12); }
+/* Modern luxury glow – champagne gold */
+@keyframes subtleGlow {
+    0%   { box-shadow: 0 0 25px rgba(214, 182, 120, 0.15); }
+    50%  { box-shadow: 0 0 50px rgba(214, 182, 120, 0.25); }
+    100% { box-shadow: 0 0 25px rgba(214, 182, 120, 0.15); }
+}
+
+/* --- Typography refinement --- */
+h1, h2, h3 {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+h1 {
+    font-size: 2.8rem;
+    color: #E6C98B; /* softer champagne gold */
+}
+
+p {
+    color: #D1D5DB; /* modern soft gray */
+}
+
+/* Optional: Elegant gold button style */
+button {
+    background: linear-gradient(135deg, #E6C98B, #C9A54C);
+    border: none;
+    padding: 14px 28px;
+    border-radius: 8px;
+    color: #111827;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(214, 182, 120, 0.35);
 }
