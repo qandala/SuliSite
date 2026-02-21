@@ -1,261 +1,373 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Luxury Real Estate</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Luxury Real Estate — Elegance Redefined</title>
 
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Fonts: Inter + optional luxury alternatives -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
 
-<style>
-/* --- Global Reset & Background --- */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Inter', 'Fira Code', monospace;
+  <style>
+    :root {
+      --gold: #E8D3A5;
+      --gold-dark: #C9A54C;
+      --bg-dark: #0f0d0e;
+      --text-light: #f5f5f7;
+      --text-muted: #d1d5db;
+      --glass: rgba(30, 28, 32, 0.65);
+      --blur: blur(16px);
+    }
 
-    background-image: url('https://raw.githubusercontent.com/qandala/SuliSite/main/realestate.jfif');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    min-height: 100vh;
-    color: #F5F5F7;
-    line-height: 1.7;
-    position: relative;
-}
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-light);
+      line-height: 1.7;
+      min-height: 100vh;
+      overflow-x: hidden;
+      background-image: url('https://raw.githubusercontent.com/qandala/SuliSite/main/realestate.jfif');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
 
-/* --- Warm Overlay --- */
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background: linear-gradient(
-        180deg,
-        rgba(30, 22, 15, 0.30) 0%,
-        rgba(12, 10, 15, 0.55) 100%
-    );
-    z-index: -1;
-}
+    /* Darker warm overlay + vignette */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(20, 16, 12, 0.65) 0%, rgba(10, 8, 12, 0.8) 100%);
+      z-index: -2;
+      pointer-events: none;
+    }
 
-/* --- Subtle Vignette --- */
-body::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    box-shadow: inset 0 0 160px 60px rgba(0, 0, 0, 0.6);
-    pointer-events: none;
-    z-index: -1;
-}
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      box-shadow: inset 0 0 180px 80px rgba(0,0,0,0.75);
+      z-index: -1;
+      pointer-events: none;
+    }
 
-/* --- Container --- */
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 60px 30px;
-    background: rgba(20, 18, 22, 0.55);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border-radius: 16px;
-    border: 1px solid rgba(255,255,255,0.08);
-}
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      padding: 24px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(15,13,14,0.4);
+      backdrop-filter: var(--blur);
+      -webkit-backdrop-filter: var(--blur);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      transition: background 0.4s;
+    }
 
-/* --- Hero Section --- */
-.hero {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #E8D3A5;
-    padding: 0 20px;
-}
+    nav.scrolled {
+      background: rgba(15,13,14,0.75);
+    }
 
-.hero h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-    letter-spacing: 1px;
-}
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--gold);
+      letter-spacing: 1px;
+    }
 
-.hero p {
-    font-size: 1.2rem;
-    max-width: 700px;
-    color: #F5F5F7;
-}
+    .nav-links a {
+      color: var(--text-light);
+      text-decoration: none;
+      margin-left: 32px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
 
-.hero button {
-    margin-top: 30px;
-}
+    .nav-links a:hover {
+      color: var(--gold);
+    }
 
-/* --- Buttons --- */
-button {
-    background: linear-gradient(135deg, #E8D3A5, #C9A54C);
-    border: none;
-    padding: 14px 28px;
-    border-radius: 8px;
-    color: #111827;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
+    /* Container / Sections */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 5%;
+    }
 
-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(214,182,120,0.35);
-}
+    section {
+      padding: 120px 0;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 1.1s ease, transform 1.1s ease;
+    }
 
-/* --- Section Titles --- */
-h2 {
-    font-size: 2.2rem;
-    color: #E8D3A5;
-    margin-bottom: 20px;
-    text-align: center;
-}
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-/* --- About Section --- */
-.about {
-    padding: 80px 20px;
-    text-align: center;
-}
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 5%;
+    }
 
-.about p {
-    max-width: 800px;
-    margin: 0 auto;
-    font-size: 1.1rem;
-    color: #D1D5DB;
-}
-
-/* --- Project Gallery --- */
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    padding: 80px 20px;
-}
-
-.gallery-item {
-    position: relative;
-    overflow: hidden;
-    border-radius: 12px;
-}
-
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.gallery-item:hover img {
-    transform: scale(1.05);
-}
-
-.gallery-item .overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.35);
-    color: #E8D3A5;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    font-weight: 600;
-    text-align: center;
-}
-
-.gallery-item:hover .overlay {
-    opacity: 1;
-}
-
-/* --- Contact Section --- */
-.contact {
-    padding: 80px 20px;
-    text-align: center;
-}
-
-.contact input, 
-.contact textarea {
-    width: 100%;
-    max-width: 500px;
-    padding: 12px 15px;
-    margin: 10px 0;
-    border-radius: 8px;
-    border: none;
-    background: rgba(255,255,255,0.1);
-    color: #F5F5F7;
-    font-size: 1rem;
-}
-
-.contact input::placeholder,
-.contact textarea::placeholder {
-    color: #D1D5DB;
-}
-
-.contact button {
-    margin-top: 20px;
-}
-
-/* --- Responsive --- */
-@media (max-width: 768px) {
     .hero h1 {
-        font-size: 2.2rem;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3.5rem, 8vw, 7.5rem);
+      font-weight: 700;
+      color: transparent;
+      background: linear-gradient(90deg, var(--gold), #fff, var(--gold-dark));
+      -webkit-background-clip: text;
+      background-clip: text;
+      letter-spacing: -1px;
+      line-height: 0.92;
+      margin-bottom: 24px;
     }
 
     .hero p {
-        font-size: 1rem;
+      font-size: clamp(1.25rem, 3vw, 1.6rem);
+      max-width: 720px;
+      color: var(--text-muted);
+      margin-bottom: 40px;
     }
-}
-</style>
+
+    .btn {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: #111;
+      font-weight: 600;
+      padding: 16px 40px;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.4s ease;
+      box-shadow: 0 8px 30px rgba(200, 160, 80, 0.25);
+    }
+
+    .btn:hover {
+      transform: translateY(-4px) scale(1.04);
+      box-shadow: 0 16px 50px rgba(200, 160, 80, 0.4);
+    }
+
+    /* Headings */
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      color: var(--gold);
+      text-align: center;
+      margin-bottom: 60px;
+      letter-spacing: -0.5px;
+    }
+
+    /* About */
+    .about p {
+      max-width: 760px;
+      margin: 0 auto;
+      font-size: 1.18rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    /* Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 32px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      background: var(--glass);
+      backdrop-filter: var(--blur);
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: all 0.5s ease;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      transition: transform 0.7s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.06);
+    }
+
+    .gallery-info {
+      padding: 24px;
+      text-align: center;
+    }
+
+    .gallery-info h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .gallery-info p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* Contact */
+    .contact form {
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    .contact input,
+    .contact textarea {
+      width: 100%;
+      padding: 16px 20px;
+      margin: 12px 0;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.06);
+      color: var(--text-light);
+      font-size: 1.05rem;
+      transition: all 0.3s;
+    }
+
+    .contact input:focus,
+    .contact textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(232, 211, 165, 0.15);
+    }
+
+    .contact button {
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 60px 0 100px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      section { padding: 80px 0; }
+      nav { padding: 20px 5%; }
+      .nav-links a { margin-left: 20px; font-size: 0.95rem; }
+    }
+  </style>
 </head>
 <body>
 
-<!-- Hero Section -->
-<section class="hero">
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">LUXE</div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#gallery">Properties</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
     <h1>Luxury Real Estate</h1>
-    <p>Showcasing the finest properties with elegance, warmth, and style. Your dream home starts here.</p>
-    <button>View Projects</button>
-</section>
+    <p>Timeless elegance meets modern sophistication. Discover extraordinary properties crafted for extraordinary lives.</p>
+    <a href="#gallery" class="btn">Explore Properties</a>
+  </section>
 
-<!-- About Section -->
-<section class="about container">
+  <!-- About -->
+  <section class="about container" id="about">
     <h2>About Us</h2>
-    <p>We specialize in high-end residential properties, offering personalized services that combine elegance, modern design, and luxury living experiences.</p>
-</section>
+    <p>We curate the world’s most exceptional residences — from oceanfront estates to urban penthouses — with meticulous attention to detail, privacy, and unparalleled lifestyle experiences.</p>
+  </section>
 
-<!-- Project Gallery -->
-<section class="gallery container">
+  <!-- Gallery -->
+  <section class="gallery container" id="gallery">
+    <h2>Featured Properties</h2>
     <div class="gallery-item">
-        <img src="https://raw.githubusercontent.com/qandala/SuliSite/main/realestate.jfif" alt="Project 1">
-        <div class="overlay">Project 1</div>
-        <div class="caption">Luxury Villa Interior</div>
+      <img src="https://raw.githubusercontent.com/qandala/SuliSite/main/realestate.jfif" alt="Luxury Villa">
+      <div class="gallery-info">
+        <h3>Cliffside Villa</h3>
+        <p>Mediterranean-inspired retreat with infinity pool and panoramic sea views</p>
+      </div>
     </div>
     <div class="gallery-item">
-        <img src="https://raw.githubusercontent.com/qandala/SuliSite/main/realestate.jfif" alt="Project 2">
-        <div class="overlay">Project 2</div>
-        <div class="caption">Modern Apartment</div>
+      <img src="https://raw.githubusercontent.com/qandala/SuliSite/main/realestate.jfif" alt="Modern Penthouse">
+      <div class="gallery-info">
+        <h3>Skyline Penthouse</h3>
+        <p>City-center duplex with private rooftop terrace and designer finishes</p>
+      </div>
     </div>
     <div class="gallery-item">
-        <img src="https://raw.githubusercontent.com/qandala/SuliSite/main/realestate.jfif" alt="Project 3">
-        <div class="overlay">Project 3</div>
-        <div class="caption">High-End Penthouse</div>
+      <img src="https://raw.githubusercontent.com/qandala/SuliSite/main/realestate.jfif" alt="Estate">
+      <div class="gallery-info">
+        <h3>Private Estate</h3>
+        <p>Sprawling gated property with guest house, spa & equestrian facilities</p>
+      </div>
     </div>
-</section>
+    <!-- Add more items as needed -->
+  </section>
 
-
-<!-- Contact Section -->
-<section class="contact container">
-    <h2>Contact Us</h2>
+  <!-- Contact -->
+  <section class="contact container" id="contact">
+    <h2>Get in Touch</h2>
     <form>
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <textarea rows="5" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
+      <input type="text" placeholder="Full Name" required>
+      <input type="email" placeholder="Email Address" required>
+      <textarea rows="5" placeholder="Tell us about your dream property..." required></textarea>
+      <button type="submit" class="btn">Send Inquiry</button>
     </form>
-</section>
+  </section>
+
+  <footer>
+    <p>© 2026 Luxury Real Estate — All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('section').forEach(section => {
+      observer.observe(section);
+    });
+
+    // Nav background on scroll
+    window.addEventListener('scroll', () => {
+      document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 100);
+    });
+  </script>
 
 </body>
 </html>
