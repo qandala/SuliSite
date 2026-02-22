@@ -36,6 +36,7 @@
       overflow-x: hidden;
     }
 
+    /* Navigation */
     nav {
       position: fixed;
       top: 0;
@@ -78,6 +79,7 @@
       color: var(--gold);
     }
 
+    /* Sections */
     section {
       padding: 140px 0 100px;
       opacity: 0;
@@ -101,6 +103,7 @@
       color: var(--gold);
     }
 
+    /* Hero with Video Background */
     .hero {
       position: relative;
       height: 100vh;
@@ -138,19 +141,13 @@
       z-index: 2;
     }
 
-    .hero h1, .hero p {
-      text-shadow: 0 3px 15px rgba(0,0,0,0.8); /* Better readability over video */
-    }
-
     .hero h1 {
       font-size: clamp(4rem, 10vw, 8rem);
       font-weight: 700;
       letter-spacing: -1px;
       margin-bottom: 1.5rem;
-      background: linear-gradient(90deg, var(--gold), #fff, var(--gold-dark));
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: var(--gold);               /* Solid gold – restored as requested */
+      text-shadow: 0 4px 20px rgba(0,0,0,0.6);
     }
 
     .hero p {
@@ -160,6 +157,7 @@
       max-width: 720px;
       margin-left: auto;
       margin-right: auto;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
     }
 
     .btn {
@@ -181,6 +179,7 @@
       box-shadow: 0 20px 50px rgba(201, 165, 76, 0.45);
     }
 
+    /* Headings */
     h2 {
       font-size: clamp(3rem, 7vw, 5rem);
       text-align: center;
@@ -188,6 +187,7 @@
       letter-spacing: -0.5px;
     }
 
+    /* About */
     .about p {
       max-width: 780px;
       margin: 0 auto;
@@ -196,6 +196,7 @@
       text-align: center;
     }
 
+    /* Gallery */
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
@@ -243,6 +244,7 @@
       font-size: 1rem;
     }
 
+    /* Contact */
     .contact form {
       max-width: 620px;
       margin: 0 auto;
@@ -268,6 +270,7 @@
       box-shadow: 0 0 0 4px rgba(232, 211, 165, 0.2);
     }
 
+    /* Footer */
     footer {
       text-align: center;
       padding: 5rem 0 8rem;
@@ -281,12 +284,12 @@
       nav { padding: 1rem 5%; }
       .nav-links a { margin-left: 1.2rem; font-size: 0.95rem; }
       .hero h1 { font-size: clamp(3rem, 12vw, 5.5rem); }
-      .container { padding: 0 4%; }
     }
   </style>
 </head>
 <body>
 
+  <!-- Navigation -->
   <nav>
     <div class="logo">LUXE</div>
     <div class="nav-links">
@@ -296,16 +299,9 @@
     </div>
   </nav>
 
+  <!-- Hero with Video Background -->
   <section class="hero">
-    <video 
-      class="hero-video" 
-      autoplay 
-      muted 
-      loop 
-      playsinline 
-      preload="metadata"
-      poster="https://raw.githubusercontent.com/qandala/SuliSite/main/realestate.jfif"
-    >
+    <video class="hero-video" autoplay muted loop playsinline poster="https://raw.githubusercontent.com/qandala/SuliSite/main/realestate.jfif">
       <source src="https://raw.githubusercontent.com/qandala/SuliSite/main/Cranebuilding.mp4" type="video/mp4">
       Your browser does not support video.
     </video>
@@ -318,11 +314,13 @@
     </div>
   </section>
 
+  <!-- About -->
   <section class="about container" id="about">
     <h2>About Us</h2>
     <p>We curate the world's most distinguished residences — private estates, oceanfront villas, urban sanctuaries — delivering unmatched service, discretion, and an elevated lifestyle experience tailored to the discerning few.</p>
   </section>
 
+  <!-- Gallery -->
   <section class="gallery container" id="gallery">
     <h2>Featured Properties</h2>
     <div class="gallery-item">
@@ -348,16 +346,13 @@
     </div>
   </section>
 
+  <!-- Contact -->
   <section class="contact container" id="contact">
     <h2>Enquire Today</h2>
-    <form action="https://formsubmit.co/your@email.com" method="POST">
-      <!-- Replace your@email.com above with your real email -->
-      <input type="hidden" name="_subject" value="New Luxury Real Estate Inquiry">
-      <input type="hidden" name="_next" value="https://your-site.com/thank-you.html"> <!-- Optional thank-you page -->
-
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Email Address" required>
-      <textarea name="message" rows="6" placeholder="Share your vision or preferred property type..." required></textarea>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Email Address" required>
+      <textarea rows="6" placeholder="Share your vision or preferred property type..." required></textarea>
       <button type="submit" class="btn">Submit Inquiry</button>
     </form>
   </section>
@@ -367,6 +362,7 @@
   </footer>
 
   <script>
+    // Scroll reveal for sections
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -377,6 +373,7 @@
 
     document.querySelectorAll('section').forEach(sec => observer.observe(sec));
 
+    // Navbar scroll effect
     window.addEventListener('scroll', () => {
       document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 80);
     });
